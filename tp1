@@ -1,0 +1,83 @@
+PImage foto;
+
+void setup() {
+  size(800, 400);
+  foto = loadImage("foto.jpg");
+  background(230); // gris claro
+  image(foto, 0, 0, 400, 400); // imagen a la izquierda
+  dibujarAutorretrato(); // dibujo a la derecha
+}
+
+void dibujarAutorretrato() {
+  //centro del dibujo
+  float cx = 600;
+  float cy = 200;
+
+  // Pelo 
+  fill(40); // negro
+  noStroke();
+  ellipse(cx, cy - 30, 90, 80); // frente
+
+  // Cabeza
+  fill(240, 200, 170);
+  ellipse(cx, cy, 90, 130); // cara
+  
+    //hombros
+  stroke(230);
+  strokeWeight(1.5);
+  fill(255);
+  ellipse(cx, cy +265, 400, 400);
+  
+  // Cuello
+  fill(240, 200, 170);
+  noStroke();
+  rect(cx -25, cy + 50, 50, 40);
+
+  // Orejas
+  ellipse(cx - 45, cy, 15, 25);
+  ellipse(cx + 45, cy, 15, 25);
+
+  // Cejas
+  stroke(30);
+  strokeWeight(4);
+  line(cx - 25, cy - 30, cx - 5, cy - 30);
+  line(cx + 5, cy - 30, cx + 25, cy - 30);
+
+  // Ojos
+  noStroke();
+  fill(255);
+  ellipse(cx - 18, cy - 20, 15, 8);
+  ellipse(cx + 18, cy - 20, 15, 8);
+  fill(0);
+  ellipse(cx - 18, cy - 20, 4, 4);
+  ellipse(cx + 18, cy - 20, 4, 4);
+
+  // Nariz
+  stroke(100);
+  strokeWeight(1);
+  line(cx, cy - 10, cx, cy + 15);
+
+  // Boca 
+  strokeWeight(2);
+  line(cx - 15, cy + 30, cx + 15, cy + 30);
+
+
+  
+  // cuello Remera
+  stroke(255, 0, 0);
+  strokeWeight(1.5);
+  fill(240, 200, 170);
+  arc(cx, cy + 70, 100, 70, 0, PI); 
+  
+  //separfciopn de los brazos
+  stroke(255);
+  fill(230);
+  triangle(cx +60, cy +135, cx +60, 400 ,cx + 100 , 400);
+  triangle(cx -60, cy +135, cx -60, 400 ,cx - 100 , 400);
+  // Logo 
+  fill(255, 0, 0);
+  ellipse(cx + 55, cy + 125, 10, 10);
+  fill(0);
+  textSize(10);
+  text("Emapi", cx + 65, cy + 130);
+}
